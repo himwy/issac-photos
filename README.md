@@ -14,11 +14,13 @@ An aesthetic photography portfolio website inspired by modern minimalist design.
 ## Getting Started
 
 1. Install dependencies:
+
 ```bash
 npm install
 ```
 
 2. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -30,12 +32,14 @@ npm run dev
 ### Adding Your Information
 
 1. **Header & Contact Information**
+
    - Update the name "ISSAC" in `src/components/Header.tsx`
    - Replace placeholder email: `issac@example.com`
    - Replace Instagram handle: `@issac`
    - Add your phone number in the contact section
 
 2. **About Section**
+
    - Edit `src/app/page.tsx` in the About section
    - Add your location, experience, and photography style
    - Update the bio text to reflect your story
@@ -48,28 +52,32 @@ npm run dev
 ### Adding Real Images
 
 1. **Portfolio Grid Images**
+
    - Add your images to the `public` folder (e.g., `public/photos/project-1.jpg`)
    - Update the `image` property in `portfolioItems` array
    - Recommended size: 1200x900px (4:3 aspect ratio)
 
 2. **Project Detail Images**
+
    - Add project images to `public/photos/` folder
    - Update the `projectData` object in `src/app/project/[id]/page.tsx`
    - Update the `images` array with your image paths
    - Recommended size: 1920x1080px (16:9 aspect ratio)
 
 3. **Using Next.js Image Component** (for better performance)
+
    - Replace placeholder divs with Next.js Image component:
+
    ```tsx
    import Image from "next/image";
-   
+
    <Image
      src="/photos/project-1.jpg"
      alt="Project title"
      width={1200}
      height={900}
      className="object-cover"
-   />
+   />;
    ```
 
 ### Adding More Projects

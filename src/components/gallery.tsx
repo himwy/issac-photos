@@ -1,7 +1,7 @@
-﻿"use client"
+﻿"use client";
 
-import { motion } from "framer-motion"
-import Image from "next/image"
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 const galleryImages = [
   {
@@ -44,7 +44,7 @@ const galleryImages = [
     alt: "Fine art",
     className: "md:col-span-1 md:row-span-2",
   },
-]
+];
 
 export function Gallery() {
   return (
@@ -72,5 +72,5 @@ export function Gallery() {
         </div>
       </div>
     </section>
-  )
+  );
 }

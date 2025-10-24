@@ -1,31 +1,36 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { Menu, X, Instagram } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Menu, X, Instagram } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-sm border-b border-border" : "bg-transparent"
+        isScrolled
+          ? "bg-background/95 backdrop-blur-sm border-b border-border"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 py-6">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-2xl font-serif font-light tracking-wide">
+          <Link
+            href="/"
+            className="text-2xl font-serif font-light tracking-wide"
+          >
             ISSAC
           </Link>
 
@@ -53,7 +58,11 @@ export function Header() {
 
           {/* Social Icons */}
           <div className="hidden md:flex items-center gap-4">
-            <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <Link
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Instagram className="w-5 h-5 hover:text-muted-foreground transition-colors" />
             </Link>
           </div>
@@ -65,7 +74,11 @@ export function Header() {
             className="md:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </Button>
         </div>
 
@@ -94,7 +107,11 @@ export function Header() {
               Contact
             </Link>
             <div className="flex items-center gap-4 mt-4">
-              <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Instagram className="w-5 h-5" />
               </Link>
             </div>
@@ -102,5 +119,5 @@ export function Header() {
         )}
       </div>
     </header>
-  )
+  );
 }
