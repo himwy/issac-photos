@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, Instagram } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -68,10 +67,8 @@ export function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
+          <button
+            className="md:hidden p-2 hover:bg-accent rounded-md transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -79,7 +76,7 @@ export function Header() {
             ) : (
               <Menu className="w-6 h-6" />
             )}
-          </Button>
+          </button>
         </div>
 
         {/* Mobile Menu */}

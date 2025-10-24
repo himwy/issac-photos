@@ -1,11 +1,7 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -34,26 +30,26 @@ export function Contact() {
               <label htmlFor="name" className="block text-sm uppercase tracking-wider mb-2">
                 Name
               </label>
-              <Input
+              <input
                 id="name"
                 type="text"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 required
-                className="w-full"
+                className="w-full px-4 py-3 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
               />
             </div>
             <div>
               <label htmlFor="email" className="block text-sm uppercase tracking-wider mb-2">
                 Email
               </label>
-              <Input
+              <input
                 id="email"
                 type="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 required
-                className="w-full"
+                className="w-full px-4 py-3 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
               />
             </div>
           </div>
@@ -62,19 +58,22 @@ export function Contact() {
             <label htmlFor="message" className="block text-sm uppercase tracking-wider mb-2">
               Message
             </label>
-            <Textarea
+            <textarea
               id="message"
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               required
               rows={6}
-              className="w-full resize-none"
+              className="w-full px-4 py-3 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring resize-none"
             />
           </div>
 
-          <Button type="submit" size="lg" className="w-full md:w-auto px-12">
+          <button
+            type="submit"
+            className="w-full md:w-auto px-12 py-3 bg-primary text-primary-foreground rounded-md hover:opacity-90 transition-opacity uppercase tracking-wider text-sm"
+          >
             Send Message
-          </Button>
+          </button>
         </form>
       </div>
     </section>
