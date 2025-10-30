@@ -12,16 +12,12 @@ export function Footer() {
 
           <div className="flex items-center gap-6">
             <Link
-              href="https://instagram.com"
+              href="https://www.instagram.com/ichyung/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <Instagram className="w-5 h-5 hover:text-muted-foreground transition-colors" />
             </Link>
-          </div>
-
-          <div className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Issac Photography. All rights reserved.
           </div>
         </div>
       </div>

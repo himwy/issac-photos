@@ -17,13 +17,7 @@ export function Header() {
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-sm border-b border-border"
-          : "bg-transparent"
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border transition-all duration-300">
       <div className="container mx-auto px-6 py-6">
         <div className="flex items-center justify-between">
           <Link
@@ -36,10 +30,10 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             <Link
-              href="#portfolio"
+              href="/photos"
               className="text-sm uppercase tracking-wider hover:text-muted-foreground transition-colors"
             >
-              Portfolio
+              Photos
             </Link>
             <Link
               href="#about"
@@ -58,7 +52,7 @@ export function Header() {
           {/* Social Icons */}
           <div className="hidden md:flex items-center gap-4">
             <Link
-              href="https://instagram.com"
+              href="https://www.instagram.com/ichyung/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -83,11 +77,11 @@ export function Header() {
         {isMobileMenuOpen && (
           <nav className="md:hidden mt-6 pb-6 flex flex-col gap-4">
             <Link
-              href="#portfolio"
+              href="/photos"
               className="text-sm uppercase tracking-wider hover:text-muted-foreground transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Portfolio
+              Photos
             </Link>
             <Link
               href="#about"
@@ -105,7 +99,7 @@ export function Header() {
             </Link>
             <div className="flex items-center gap-4 mt-4">
               <Link
-                href="https://instagram.com"
+                href="https://www.instagram.com/ichyung/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
