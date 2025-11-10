@@ -1,7 +1,7 @@
 import { Header } from "@/components/header"
 import { Gallery } from "@/components/gallery"
 
-export default function Home() {
+export default function EventsPage() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
