@@ -8,15 +8,8 @@ export default function AboutPage() {
         <div className="max-w-3xl mx-auto py-16">
           <h1 className="text-4xl font-bold mb-8">About Me</h1>
           <div className="space-y-4 text-lg leading-relaxed">
-            <p>
-              Hi, I'm Isaac - a photographer passionate about capturing moments
-              that tell stories.
-            </p>
-            <p>
-              My work spans across events, nostalgic scenes, and urban street
-              photography, each offering unique perspectives on the world around
-              us.
-            </p>
+            <p>Hi, I'm Isaac - a nig</p>
+            <p>Im black</p>
           </div>
         </div>
       </main>
