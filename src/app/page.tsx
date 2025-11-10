@@ -1,5 +1,5 @@
-import { Header } from "@/components/header"
-import { Gallery } from "@/components/gallery"
+import { Header } from "@/components/header";
+import { Gallery } from "@/components/gallery";
 
 export default function Home() {
   return (
@@ -9,5 +9,5 @@ export default function Home() {
         <Gallery />
       </main>
     </div>
-  )
+  );
 }

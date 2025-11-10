@@ -1,4 +1,4 @@
-﻿import Image from "next/image"
+﻿import Image from "next/image";
 
 const galleryImages = [
   {
@@ -61,7 +61,7 @@ const galleryImages = [
     alt: "Photography by Issac",
     title: "Mood & Tone",
   },
-]
+];
 
 export function Gallery() {
   return (
@@ -84,5 +84,5 @@ export function Gallery() {
         </div>
       </div>
     </section>
-  )
+  );
 }
