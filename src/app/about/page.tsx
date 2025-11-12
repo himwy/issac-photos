@@ -8,8 +8,17 @@ export default function AboutPage() {
         <div className="max-w-3xl mx-auto py-16">
           <h1 className="text-4xl font-bold mb-8">About Me</h1>
           <div className="space-y-4 text-lg leading-relaxed">
-            <p>Hi, I'm Isaac - a nig</p>
-            <p>Im black</p>
+            <p>extraordinary ordinary</p>
+            <p>
+              <a 
+                href="https://www.instagram.com/ichyung/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:opacity-60 transition-opacity underline"
+              >
+                @ichyung
+              </a>
+            </p>
           </div>
         </div>
       </main>
