@@ -10,9 +10,9 @@ export default function AboutPage() {
           <div className="space-y-4 text-lg leading-relaxed">
             <p>extraordinary ordinary</p>
             <p>
-              <a 
-                href="https://www.instagram.com/ichyung/" 
-                target="_blank" 
+              <a
+                href="https://www.instagram.com/ichyung/"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="hover:opacity-60 transition-opacity underline"
               >
