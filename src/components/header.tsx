@@ -31,20 +31,20 @@ export function Header() {
                 )}
               </Link>
               <Link
-                href="/nostalgic"
+                href="/sports"
                 className="text-sm uppercase tracking-wider hover:opacity-60 transition-opacity relative"
               >
-                Nostalgic
-                {isActive("/nostalgic") && (
+                Sports
+                {isActive("/sports") && (
                   <span className="absolute -bottom-2 left-0 right-0 h-px bg-black" />
                 )}
               </Link>
               <Link
-                href="/street"
+                href="/portraits"
                 className="text-sm uppercase tracking-wider hover:opacity-60 transition-opacity relative"
               >
-                Street
-                {isActive("/street") && (
+                Portraits
+                {isActive("/portraits") && (
                   <span className="absolute -bottom-2 left-0 right-0 h-px bg-black" />
                 )}
               </Link>
@@ -109,18 +109,18 @@ export function Header() {
                 Events
               </Link>
               <Link
-                href="/nostalgic"
+                href="/sports"
                 className="text-3xl uppercase tracking-wider"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Nostalgic
+                Sports
               </Link>
               <Link
-                href="/street"
+                href="/portraits"
                 className="text-3xl uppercase tracking-wider"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Street
+                Portraits
               </Link>
               <Link
                 href="/about"
