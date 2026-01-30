@@ -15,13 +15,13 @@ export default function AboutPage() {
                 alt=""
                 fill
                 priority
-                className="object-cover"
+                className="object-cover object-bottom"
               />
             </div>
 
             {/* Text */}
             <div className="space-y-8">
-              <p className="text-lg font-light tracking-wide text-muted-foreground">
+              <p className="text-xl font-light tracking-wide">
                 extraordinary ordinary
               </p>
 
