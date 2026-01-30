@@ -132,12 +132,10 @@ function parseAlbums(category: "events" | "sports"): Album[] {
   for (const [albumName, images] of albumMap) {
     const coverImage = getCoverImage(images);
     
-    // For display, replace _ with ' in this album's title
+    // For display, replace _ with ' in this album's title, but always use the correct key for description
     let displayTitle = albumName;
-    let displayDescription = getAlbumDescription(albumName);
     if (albumName === "HKJC Gentlemen_s Raceday 2026 - PER SE") {
       displayTitle = "HKJC Gentlemen's Raceday 2026 - PER SE";
-      displayDescription = getAlbumDescription("HKJC Gentlemen's Raceday 2026 - PER SE");
     }
     albums.push({
       id: encodeURIComponent(albumName),
@@ -145,7 +143,7 @@ function parseAlbums(category: "events" | "sports"): Album[] {
       category,
       coverImage: toCloudinaryThumbnail(coverImage),
       images: images.map(img => toCloudinaryUrl(img)),
-      description: displayDescription,
+      description: getAlbumDescription(albumName),
     });
   }
   
