@@ -15,7 +15,7 @@ export default function PortraitsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {portraits.map((portrait, index) => (
               <div key={index} className="block">
-                <div className="relative aspect-[3/4] overflow-hidden bg-muted mb-3">
+                <div className="relative aspect-[3/4] overflow-hidden bg-muted">
                   <OptimizedImage
                     src={portrait.src}
                     alt={portrait.alt}
@@ -24,9 +24,6 @@ export default function PortraitsPage() {
                     className="object-cover"
                   />
                 </div>
-                <p className="text-sm text-muted-foreground">
-                  {portrait.alt}
-                </p>
               </div>
             ))}
           </div>
