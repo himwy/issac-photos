@@ -16,7 +16,7 @@ export function Header() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-border">
         <div className="max-w-7xl mx-auto px-8 py-6">
           <div className="flex items-center justify-between">
-            <Link href="/" className="text-lg font-light tracking-wide">
+            <Link href="/" className="text-lg font-semibold tracking-wide md:font-medium">
               Isaac Chau
             </Link>
 
@@ -87,7 +87,8 @@ export function Header() {
             <div className="flex items-center justify-between px-8 py-6 border-b border-border">
               <Link
                 href="/"
-                className="text-lg font-light tracking-wide text-gray-500"
+                className="text-lg font-bold tracking-wide text-gray-900"
+                style={{ letterSpacing: "0.04em" }}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Isaac Chau

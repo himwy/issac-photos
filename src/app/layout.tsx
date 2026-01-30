@@ -14,18 +14,18 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Issac Chau",
+  title: "Isaac Chau",
   description: "extraordinary ordinary",
   openGraph: {
-    title: "Issac Chau",
+    title: "Isaac Chau",
     description: "extraordinary ordinary",
     type: "website",
     locale: "en_US",
-    siteName: "Issac Chau",
+    siteName: "Isaac Chau",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Issac Chau",
+    title: "Isaac Chau",
     description: "extraordinary ordinary",
   },
 };
