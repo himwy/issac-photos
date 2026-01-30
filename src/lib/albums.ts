@@ -30,7 +30,6 @@ function toCloudinaryThumbnail(publicId: string): string {
 const cloudinaryImages = [
   "Portraits/DSC03874-3.jpg",
   "Portraits/DSC06514-3.jpg",
-  "Portraits/DSC02706.jpg",
   "Sports/HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/DSC06926.jpg",
   "Sports/HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/DSC06905.jpg",
   "Sports/HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/DSC06838.jpg",
@@ -50,7 +49,6 @@ const cloudinaryImages = [
   "Portraits/DSC09591.jpg",
   "Portraits/DSC01586-4.jpg",
   "Sports/HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/DSC07005-4.jpg",
-  "Sports/HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/DSC02363.jpg",
   "Sports/HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/DSC02156-2.jpg",
   "Sports/HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/DSC01865.jpg",
   "Sports/HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/DSC02363.jpg",
@@ -75,6 +73,7 @@ const cloudinaryImages = [
   "Events/BLAST Premier Hong Kong Rivals 2025/image.jpg",
   "Events/BLAST Premier Hong Kong Rivals 2025/DSC02412-7.jpg",
   "Events/Acer Predator League Hong Kong 2026/DSC09925.jpg",
+  "Portraits/DSC02706.jpg",
 ];
 
 // Album descriptions

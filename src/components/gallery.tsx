@@ -61,6 +61,11 @@ const galleryImages = [
     alt: "Photography by Issac",
     title: "Mood & Tone",
   },
+  {
+    src: "https://res.cloudinary.com/do7btffiq/image/upload/w_800,c_limit,f_auto,q_auto/Portraits/DSC02706.jpg",
+    alt: "Portraits/DSC02706.jpg",
+    title: "Portraits/DSC02706.jpg",
+  },
 ];
 
 export function Gallery() {
