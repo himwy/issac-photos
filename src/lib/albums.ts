@@ -15,9 +15,15 @@ export interface PortraitImage {
 // Cloudinary configuration
 const CLOUDINARY_CLOUD_NAME = "do7btffiq";
 
-// Convert public_id to Cloudinary URL with automatic optimization
-function toCloudinaryUrl(publicId: string): string {
-  return `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/f_auto,q_auto/${publicId}`;
+// Convert public_id to Cloudinary URL with automatic optimization and resizing
+function toCloudinaryUrl(publicId: string, width: number = 1200): string {
+  // w_ for width, c_limit to not upscale, f_auto for format, q_auto for quality
+  return `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/w_${width},c_limit,f_auto,q_auto/${publicId}`;
+}
+
+// For thumbnails/covers use smaller size
+function toCloudinaryThumbnail(publicId: string): string {
+  return `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/w_600,c_limit,f_auto,q_auto/${publicId}`;
 }
 
 // All images from Cloudinary organized by folder
@@ -110,8 +116,8 @@ function parseAlbums(category: "events" | "sports"): Album[] {
       id: encodeURIComponent(albumName),
       title: albumName,
       category,
-      coverImage: toCloudinaryUrl(coverImage),
-      images: images.map(toCloudinaryUrl),
+      coverImage: toCloudinaryThumbnail(coverImage),
+      images: images.map(img => toCloudinaryUrl(img)),
       description: getAlbumDescription(albumName),
     });
   }
@@ -128,14 +134,20 @@ export function getAlbum(
   id: string
 ): Album | null {
   const albums = getAlbums(category);
-  return albums.find((album) => album.id === id) || null;
+  // Try direct match first, then try decoding
+  const decodedId = decodeURIComponent(id);
+  return albums.find((album) => 
+    album.id === id || 
+    album.id === decodedId || 
+    decodeURIComponent(album.id) === decodedId
+  ) || null;
 }
 
 export function getPortraits(): PortraitImage[] {
   const portraits = cloudinaryImages.filter((id) => id.startsWith("Portraits/"));
   
   return portraits.map((publicId) => ({
-    src: toCloudinaryUrl(publicId),
+    src: toCloudinaryUrl(publicId, 800),
     alt: publicId.split("/").pop() || "",
   }));
 }
