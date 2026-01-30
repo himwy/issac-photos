@@ -12,6 +12,11 @@ interface OptimizedImageProps {
   sizes?: string;
 }
 
+// Check if URL is from Cloudinary
+function isCloudinaryUrl(url: string): boolean {
+  return url.includes("res.cloudinary.com");
+}
+
 export function OptimizedImage({
   src,
   alt,
@@ -22,6 +27,26 @@ export function OptimizedImage({
 }: OptimizedImageProps) {
   const [isLoading, setIsLoading] = useState(true);
 
+  const baseClassName = `
+    ${className}
+    duration-700 ease-in-out
+    ${isLoading ? "scale-105 blur-lg" : "scale-100 blur-0"}
+  `;
+
+  // For Cloudinary URLs, use regular img tag to avoid double optimization
+  if (isCloudinaryUrl(src)) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={src}
+        alt={alt}
+        className={`${baseClassName} ${fill ? "absolute inset-0 w-full h-full object-cover" : ""}`}
+        loading={priority ? "eager" : "lazy"}
+        onLoad={() => setIsLoading(false)}
+      />
+    );
+  }
+
   return (
     <Image
       src={src}
@@ -29,11 +54,7 @@ export function OptimizedImage({
       fill={fill}
       priority={priority}
       sizes={sizes}
-      className={`
-        ${className}
-        duration-700 ease-in-out
-        ${isLoading ? "scale-105 blur-lg" : "scale-100 blur-0"}
-      `}
+      className={baseClassName}
       onLoad={() => setIsLoading(false)}
     />
   );
