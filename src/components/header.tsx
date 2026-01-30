@@ -16,8 +16,8 @@ export function Header() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-border">
         <div className="max-w-7xl mx-auto px-8 py-6">
           <div className="flex items-center justify-between">
-            <Link href="/" className="text-2xl font-bold tracking-tight">
-              ISAAC
+            <Link href="/" className="text-lg font-light tracking-wide">
+              Isaac Chau
             </Link>
 
             <nav className="hidden md:flex items-center gap-8">
