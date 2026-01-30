@@ -1,5 +1,4 @@
 Portraits/DSC03874-3.jpg
-Portraits/DSC02706.jpg
 Sports/HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/DSC06926.jpg
 Sports/HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/DSC06905.jpg
 Sports/HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/DSC06838.jpg
@@ -45,3 +44,4 @@ Events/HKJC Gentlemen_s Raceday 2026 - PER SE/DSC01504.jpg
 Events/BLAST Premier Hong Kong Rivals 2025/image.jpg
 Events/BLAST Premier Hong Kong Rivals 2025/DSC02412-7.jpg
 Events/Acer Predator League Hong Kong 2026/DSC09925.jpg
+Portraits/DSC02706.jpg
