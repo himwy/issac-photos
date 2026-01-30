@@ -2,12 +2,22 @@ const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 const path = require('path');
 
-// Configure Cloudinary
+// Load environment variables from .env.local
+require('dotenv').config({ path: '.env.local' });
+
+// Configure Cloudinary from environment variables
 cloudinary.config({
-  cloud_name: 'do7btffiq',
-  api_key: '597243622227989',
-  api_secret: '1xhIAV75Oyir1_Dph2Wrs3jchY8'
+  cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
 });
+
+// Check if credentials are set
+if (!process.env.CLOUDINARY_API_KEY || !process.env.CLOUDINARY_API_SECRET) {
+  console.error('Error: Cloudinary credentials not found in .env.local');
+  console.error('Make sure you have CLOUDINARY_API_KEY and CLOUDINARY_API_SECRET set');
+  process.exit(1);
+}
 
 async function deleteAllResources() {
   console.log('Deleting all resources from Cloudinary...\n');
