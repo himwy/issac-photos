@@ -87,7 +87,7 @@ export function Header() {
             <div className="flex items-center justify-between px-8 py-6 border-b border-border">
               <Link
                 href="/"
-                className="text-lg font-light tracking-wide"
+                className="text-lg font-light tracking-wide text-gray-500"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Isaac Chau
@@ -96,35 +96,35 @@ export function Header() {
                 onClick={() => setMobileMenuOpen(false)}
                 aria-label="Close menu"
               >
-                <X className="w-6 h-6 text-gray-800" strokeWidth={1} />
+                <X className="w-6 h-6 text-gray-400" strokeWidth={1} />
               </button>
             </div>
 
             <nav className="flex flex-col items-center justify-center flex-1 gap-8 text-center">
               <Link
                 href="/events"
-                className="text-3xl uppercase tracking-wider"
+                className="text-2xl font-light tracking-wide text-gray-500"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Events
               </Link>
               <Link
                 href="/sports"
-                className="text-3xl uppercase tracking-wider"
+                className="text-2xl font-light tracking-wide text-gray-500"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Sports
               </Link>
               <Link
                 href="/portraits"
-                className="text-3xl uppercase tracking-wider"
+                className="text-2xl font-light tracking-wide text-gray-500"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Portraits
               </Link>
               <Link
                 href="/about"
-                className="text-3xl uppercase tracking-wider"
+                className="text-2xl font-light tracking-wide text-gray-500"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 About Me
@@ -137,7 +137,7 @@ export function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Instagram className="w-6 h-6" />
+                <Instagram className="w-6 h-6 text-gray-400" strokeWidth={1} />
               </Link>
             </div>
           </div>
