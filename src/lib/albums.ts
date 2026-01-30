@@ -29,6 +29,7 @@ function toCloudinaryThumbnail(publicId: string): string {
 // All images from Cloudinary organized by folder (auto-generated)
 const cloudinaryImages = [
   "Portraits/DSC03874-3.jpg",
+  "Portraits/DSC06514-3.jpg",
   "Portraits/DSC02706.jpg",
   "Sports/HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/DSC06926.jpg",
   "Sports/HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/DSC06905.jpg",
@@ -47,12 +48,12 @@ const cloudinaryImages = [
   "Portraits/image.png",
   "Portraits/DSC09676.jpg",
   "Portraits/DSC09591.jpg",
-  "Portraits/DSC06514-3.jpg",
   "Portraits/DSC01586-4.jpg",
   "Sports/HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/DSC07005-4.jpg",
   "Sports/HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/DSC02363.jpg",
   "Sports/HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/DSC02156-2.jpg",
   "Sports/HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/DSC01865.jpg",
+  "Sports/HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/DSC02363.jpg",
   "Sports/HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/Cover.jpg",
   "Events/觀塘區電子競技大賽暨體驗日2025 - CS2 3v3/DSC09170.jpg",
   "Events/觀塘區電子競技大賽暨體驗日2025 - CS2 3v3/DSC09128.jpg",
@@ -80,7 +81,7 @@ const cloudinaryImages = [
 const albumDescriptions: Record<string, string> = {
   "Acer Predator League Hong Kong 2026": "Coverage of the Acer Predator League esports tournament in Hong Kong.",
   "BLAST Premier Hong Kong Rivals 2025": "Professional CS2 tournament featuring top international teams.",
-  "HKJC Gentlemen_s Raceday 2026 - PER SE": "Elegant moments from the Hong Kong Jockey Club Gentlemen's Raceday.",
+  "HKJC Gentlemen_s Raceday 2026 - PER SE": "PER SE's moment from HKJC Gentlemen's Raceday",
   "HKU French Society Boat Party 2025": "A vibrant boat party organized by HKU French Society.",
   "White Summer Terence Lam 2025": "Concert photography from Terence Lam's White Summer event.",
   "沙田九約太平清醮": "Traditional Jiao Festival celebrations in Sha Tin.",
@@ -94,6 +95,11 @@ function getAlbumDescription(folderName: string): string {
 
 // Get cover image (prioritize files with "cover" in name)
 function getCoverImage(images: string[]): string {
+  // Special case for HKFDF event: use DSC02363.jpg as cover
+  if (images.some(img => img.includes("HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/DSC02363.jpg"))) {
+    const hkfdfCover = images.find(img => img.includes("HKFDF 2025 Hong Kong Mixed club league - 2 (Ninety-nine v Siempre)/DSC02363.jpg"));
+    if (hkfdfCover) return hkfdfCover;
+  }
   const coverImage = images.find((img) =>
     img.toLowerCase().includes("cover")
   );
@@ -126,13 +132,20 @@ function parseAlbums(category: "events" | "sports"): Album[] {
   for (const [albumName, images] of albumMap) {
     const coverImage = getCoverImage(images);
     
+    // For display, replace _ with ' in this album's title
+    let displayTitle = albumName;
+    let displayDescription = getAlbumDescription(albumName);
+    if (albumName === "HKJC Gentlemen_s Raceday 2026 - PER SE") {
+      displayTitle = "HKJC Gentlemen's Raceday 2026 - PER SE";
+      displayDescription = getAlbumDescription("HKJC Gentlemen's Raceday 2026 - PER SE");
+    }
     albums.push({
       id: encodeURIComponent(albumName),
-      title: albumName,
+      title: displayTitle,
       category,
       coverImage: toCloudinaryThumbnail(coverImage),
       images: images.map(img => toCloudinaryUrl(img)),
-      description: getAlbumDescription(albumName),
+      description: displayDescription,
     });
   }
   

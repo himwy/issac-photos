@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Instagram, Menu, X } from "lucide-react";
+import { Instagram, Menu, X, Mail } from "lucide-react";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -59,6 +59,7 @@ export function Header() {
               </Link>
             </nav>
 
+
             <div className="flex items-center gap-4">
               <Link
                 href="https://www.instagram.com/ichyung/"
@@ -67,6 +68,13 @@ export function Header() {
                 className="hidden md:block"
               >
                 <Instagram className="w-5 h-5 hover:opacity-60 transition-opacity" />
+              </Link>
+              <Link
+                href="mailto:ichyung00@gmail.com"
+                className="hidden md:block"
+                aria-label="Email Isaac Chau"
+              >
+                <Mail className="w-5 h-5 hover:opacity-60 transition-opacity" />
               </Link>
 
               <button
@@ -139,6 +147,12 @@ export function Header() {
                 rel="noopener noreferrer"
               >
                 <Instagram className="w-6 h-6 text-gray-400" strokeWidth={1} />
+              </Link>
+              <Link
+                href="mailto:ichyung00@gmail.com"
+                aria-label="Email Isaac Chau"
+              >
+                <Mail className="w-6 h-6 text-gray-400" strokeWidth={1} />
               </Link>
             </div>
           </div>
