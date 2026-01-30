@@ -14,8 +14,20 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Isaac Photography",
-  description: "Visual storytelling through the lens",
+  title: "Issac Chau",
+  description: "extraordinary ordinary",
+  openGraph: {
+    title: "Issac Chau",
+    description: "extraordinary ordinary",
+    type: "website",
+    locale: "en_US",
+    siteName: "Issac Chau",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Issac Chau",
+    description: "extraordinary ordinary",
+  },
 };
 
 export default function RootLayout({

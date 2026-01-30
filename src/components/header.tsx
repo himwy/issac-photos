@@ -71,10 +71,10 @@ export function Header() {
 
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden"
+                className="md:hidden p-1 rounded focus:outline-none focus:ring-2 focus:ring-gray-300"
                 aria-label="Toggle menu"
               >
-                <Menu className="w-6 h-6" />
+                <Menu className="w-6 h-6 text-gray-800" strokeWidth={1} />
               </button>
             </div>
           </div>
@@ -87,16 +87,16 @@ export function Header() {
             <div className="flex items-center justify-between px-8 py-6 border-b border-border">
               <Link
                 href="/"
-                className="text-2xl font-bold tracking-tight"
+                className="text-lg font-light tracking-wide"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                ISAAC
+                Isaac Chau
               </Link>
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 aria-label="Close menu"
               >
-                <X className="w-6 h-6" />
+                <X className="w-6 h-6 text-gray-800" strokeWidth={1} />
               </button>
             </div>
 
