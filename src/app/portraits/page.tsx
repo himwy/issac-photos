@@ -1,9 +1,14 @@
+"use client";
+
+import { useState } from "react";
 import { Header } from "@/components/header";
 import { OptimizedImage } from "@/components/optimized-image";
+import { Lightbox } from "@/components/lightbox";
 import { getPortraits } from "@/lib/albums";
 
 export default function PortraitsPage() {
   const portraits = getPortraits();
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen bg-white">
@@ -15,7 +20,10 @@ export default function PortraitsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {portraits.map((portrait, index) => (
               <div key={index} className="block">
-                <div className="relative aspect-[3/4] overflow-hidden bg-muted">
+                <div 
+                  className="relative aspect-[3/4] overflow-hidden bg-muted cursor-pointer hover:opacity-90 transition-opacity"
+                  onClick={() => setLightboxIndex(index)}
+                >
                   <OptimizedImage
                     src={portrait.src}
                     alt={portrait.alt}
@@ -35,6 +43,24 @@ export default function PortraitsPage() {
           )}
         </div>
       </main>
+
+      {/* Lightbox */}
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={portraits.map(p => p.src)}
+          currentIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onNext={() =>
+            setLightboxIndex((lightboxIndex + 1) % portraits.length)
+          }
+          onPrevious={() =>
+            setLightboxIndex(
+              (lightboxIndex - 1 + portraits.length) % portraits.length
+            )
+          }
+          alt="Portrait"
+        />
+      )}
     </div>
   );
 }

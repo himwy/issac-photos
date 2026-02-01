@@ -1,23 +1,21 @@
+"use client";
+
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { useState, use } from "react";
 import { Header } from "@/components/header";
 import { OptimizedImage } from "@/components/optimized-image";
+import { Lightbox } from "@/components/lightbox";
 import { getAlbum, getAlbums } from "@/lib/albums";
 
-export function generateStaticParams() {
-  const albums = getAlbums("events");
-  return albums.map((album) => ({
-    id: album.id,
-  }));
-}
-
-export default async function EventAlbumPage({
+export default function EventAlbumPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const { id } = await params;
+  const { id } = use(params);
   const album = getAlbum("events", id);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   if (!album) {
     notFound();
@@ -53,7 +51,8 @@ export default async function EventAlbumPage({
             {album.images.map((image, index) => (
               <div
                 key={index}
-                className="relative aspect-[4/3] overflow-hidden bg-muted"
+                className="relative aspect-[4/3] overflow-hidden bg-muted cursor-pointer hover:opacity-90 transition-opacity"
+                onClick={() => setLightboxIndex(index)}
               >
                 <OptimizedImage
                   src={image}
@@ -67,6 +66,24 @@ export default async function EventAlbumPage({
           </div>
         </div>
       </main>
+
+      {/* Lightbox */}
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={album.images}
+          currentIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onNext={() =>
+            setLightboxIndex((lightboxIndex + 1) % album.images.length)
+          }
+          onPrevious={() =>
+            setLightboxIndex(
+              (lightboxIndex - 1 + album.images.length) % album.images.length
+            )
+          }
+          alt={album.title}
+        />
+      )}
     </div>
   );
 }
