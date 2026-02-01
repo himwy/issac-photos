@@ -57,7 +57,7 @@ export function Lightbox({
             e.stopPropagation();
             onPrevious();
           }}
-          className="absolute left-4 text-white/70 hover:text-white text-5xl leading-none p-2 z-10"
+          className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white text-4xl md:text-5xl leading-none p-2 z-10"
           aria-label="Previous image"
         >
           ‹
@@ -66,14 +66,14 @@ export function Lightbox({
 
       {/* Image */}
       <div
-        className="relative w-full h-full flex items-center justify-center p-16"
+        className="relative w-full h-full flex items-center justify-center px-12 md:px-16 py-20 md:py-16"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative max-w-full max-h-full">
+        <div className="relative w-full h-full flex items-center justify-center">
           <OptimizedImage
             src={images[currentIndex]}
             alt={`${alt} ${currentIndex + 1}`}
-            className="max-w-[90vw] max-h-[90vh] w-auto h-auto object-contain"
+            className="max-w-full max-h-full w-auto h-auto object-contain"
           />
         </div>
       </div>
@@ -85,7 +85,7 @@ export function Lightbox({
             e.stopPropagation();
             onNext();
           }}
-          className="absolute right-4 text-white/70 hover:text-white text-5xl leading-none p-2 z-10"
+          className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white text-4xl md:text-5xl leading-none p-2 z-10"
           aria-label="Next image"
         >
           ›
